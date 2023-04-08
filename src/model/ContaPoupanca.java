@@ -14,6 +14,7 @@ public class ContaPoupanca extends Conta {
             System.out.println("SALDO INDISPONIVVEL, em conta poupança não é possivel ter saldo negativo");
         else
             this.saldo -= valor;
+        // contas poupanças nao permitem saldos negativos até onde sei
     }
 
     @Override

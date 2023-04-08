@@ -14,10 +14,6 @@ public class ContaCorrente extends Conta implements Associado {
         this.valorCota = valorCota;
     }
 
-    public ContaCorrente(int qtdDeCotas, double valorCota) {
-        this.qtdDeCotas = qtdDeCotas;
-        this.valorCota = valorCota;
-    }
 
     @Override
     public int getQtdDeCotas() {
@@ -42,6 +38,8 @@ public class ContaCorrente extends Conta implements Associado {
     @Override
     public double lucros(int qtdDeCotas, double valorCota) {
         return qtdDeCotas * valorCota - this.qtdDeCotas * this.valorCota;
+        // nao compreendi o que seria o metodo de lucros, entao estipulei que fosse uma formula de
+//        o valor total antigo em comparação com o valor total atual da cota
     }
 
     @Override

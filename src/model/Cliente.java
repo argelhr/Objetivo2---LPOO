@@ -1,9 +1,9 @@
 package model;
 
-public class Cliente implements Associado{
+public class Cliente implements Associado {
+    public double valorCota;
     private String nome;
     private int qtdDeCotas;
-    public double valorCota;
 
     public Cliente() {
     }
@@ -40,20 +40,22 @@ public class Cliente implements Associado{
 
     @Override
     public void setValorCota(double valorCota) {
-    this.valorCota = valorCota;
+        this.valorCota = valorCota;
     }
 
     @Override
     public double lucros(int qtdDeCotas, double valorCota) {
-        return 0;
+        return this.qtdDeCotas * this.valorCota - qtdDeCotas * valorCota;
+        // estipulei que lucros fosse uma formula de valor atual do cliente em comparação
+        // ao valor antigo que o cliente possuia
     }
 
     @Override
     public String toString() {
         return "Cliente{" +
-                "nome='" + nome + '\'' +
-                ", qtdDeCotas=" + qtdDeCotas +
-                ", valorCota=" + valorCota +
-                '}'+"\n";
+                "nome='" + getNome() + '\'' +
+                ", qtdDeCotas=" + getQtdDeCotas() +
+                ", valorCota=" + getValorCota() +
+                '}';
     }
 }
