@@ -14,7 +14,6 @@ public class ContaCorrente extends Conta implements Associado {
         this.valorCota = valorCota;
     }
 
-
     @Override
     public int getQtdDeCotas() {
         return qtdDeCotas;

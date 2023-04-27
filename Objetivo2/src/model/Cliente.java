@@ -52,10 +52,11 @@ public class Cliente implements Associado {
 
     @Override
     public String toString() {
+        System.out.print(" ");
         return "Cliente{" +
                 "nome='" + getNome() + '\'' +
                 ", qtdDeCotas=" + getQtdDeCotas() +
                 ", valorCota=" + getValorCota() +
-                '}';
+                '}'+"\n";
     }
 }

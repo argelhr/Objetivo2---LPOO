@@ -8,13 +8,13 @@ import java.util.Comparator;
 import java.util.List;
 
 public class EmpresaController {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
 //      System.out.println("letra A");
 
         Conta poupanca1 = new ContaPoupanca(1, 500);
         Conta poupanca2 = new ContaPoupanca(2, 100);
-        Conta poupanca3 = new ContaPoupanca(3, 200);
+        Conta poupanca3 = new ContaPoupanca(3, 2000);
 
         ContaCorrente corrente1 = new ContaCorrente(100, 800, 24, 15);
         ContaCorrente corrente2 = new ContaCorrente(101, 20, 25, 15);
@@ -110,19 +110,30 @@ public class EmpresaController {
         System.out.println("associados que possuem a maior quantidade");
         Associado maiorQTD = Collections.max(associados, Comparator.comparing(Associado::getQtdDeCotas));
         associados.forEach(associado -> {
-            if(associado.getQtdDeCotas() >= maiorQTD.getQtdDeCotas())
+            if (associado.getQtdDeCotas() >= maiorQTD.getQtdDeCotas())
                 System.out.print(associado);
         });
 
 //      letra g
 
-        //contas do sistema
+//      contas do sistema
         System.out.println("Contas cadastradas no sistema na ordem que foram armazenadas");
         System.out.println(contas);
 
         System.out.println("ASSOCIADOS QUE POSSUEM CONTAS CORRENTES");
+
+//        retirado para correção, tinha implementado desta forma pensando que seria um filtro a mais pra imprimir
+//        as instancias que tinha solicitado, mas eu entendi o ponto que salientou
+
+//        associados.forEach(associado -> {
+//            if(associado instanceof Associado && associado instanceof ContaCorrente) {
+//                System.out.print(associado);
+//            }
+//        });
+
+//      versao correta
         associados.forEach(associado -> {
-            if(associado instanceof Associado && associado instanceof ContaCorrente) {
+            if(associado instanceof ContaCorrente) {
                 System.out.print(associado);
             }
         });
@@ -131,6 +142,14 @@ public class EmpresaController {
         contas.sort(Comparator.comparing(Conta::getSaldo).reversed());
         System.out.println(contas);
 
+        //acresentado a parte que imprimi as contas com os saldos maiores
+        Conta maiorSaldo = Collections.max(contas, Comparator.comparing(Conta::getSaldo));
+
+        System.out.println("\nContas que possuem os maiores saldos dentro da coleção");
+        contas.forEach(conta -> {
+            if(conta.getSaldo() >= maiorSaldo.getSaldo())
+                System.out.print(conta);
+        });
     }
 
 }

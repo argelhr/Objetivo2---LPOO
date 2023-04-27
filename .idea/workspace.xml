@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e82e9d6d-a317-44a0-87c6-680f5327b9d6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Objetivo 2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Objetivo2/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Objetivo2/Objetivo 2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objetivo3e4/objetivo3e4.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/EmpresaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Objetivo2/src/controller/EmpresaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Associado.java" beforeDir="false" afterPath="$PROJECT_DIR$/Objetivo2/src/model/Associado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Objetivo2/src/model/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/Objetivo2/src/model/Conta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ContaCorrente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Objetivo2/src/model/ContaCorrente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ContaPoupanca.java" beforeDir="false" afterPath="$PROJECT_DIR$/Objetivo2/src/model/ContaPoupanca.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2O3RtYZbMwBjC35VTyUGcLbt45n" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ARGEL/OneDrive/Área de Trabalho/LPOO/Objetivos/untitled/Objetivo2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ARGEL\OneDrive\Área de Trabalho\LPOO\Objetivos\untitled\Objetivo2" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Controller" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="controller.Controller" />
+      <module name="objetivo3e4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Controller" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e82e9d6d-a317-44a0-87c6-680f5327b9d6" name="Changes" comment="" />
+      <created>1680787495926</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1680787495926</updated>
+      <workItem from="1680787497189" duration="4984000" />
+      <workItem from="1680888532635" duration="4245000" />
+      <workItem from="1680961411699" duration="8448000" />
+      <workItem from="1680985318239" duration="2145000" />
+      <workItem from="1680992641160" duration="2000" />
+      <workItem from="1682179255668" duration="113000" />
+      <workItem from="1682179620973" duration="5235000" />
+      <workItem from="1682550003259" duration="3830000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
