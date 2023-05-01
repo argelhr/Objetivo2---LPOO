@@ -5,8 +5,9 @@ import java.util.List;
 
 public class Fornecedor {
     private String cnpj,contato,nome;
-    private List<Produto> produtos = new ArrayList<>();
 
+    private List<Produto> produtos = new ArrayList<>();
+    //preferi colocar em lista, pois acredito que um fornecedor pode ter mais de um produto
     public Fornecedor(String cnpj, String contato, String nome) {
         this.cnpj = cnpj;
         this.contato = contato;

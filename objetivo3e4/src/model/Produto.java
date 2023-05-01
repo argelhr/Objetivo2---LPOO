@@ -58,6 +58,13 @@ public class Produto {
         this.fornecedor = fornecedor;
     }
 
+    public void incrementaEstoque(int quantidade){
+        this.quantidade += quantidade;
+    }
+    public void decrementaEstoque(int quantidade){
+        this.quantidade -= quantidade;
+    }
+
     @Override
     public String toString() {
         return "Produto{" +
