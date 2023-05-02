@@ -2,9 +2,11 @@ package controller;
 
 import model.*;
 
+import java.text.DateFormat;
 import java.text.NumberFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Controller {
@@ -20,6 +22,17 @@ public class Controller {
                 "pelotas",
                 "RS",
                 "sede1"
+        );
+//        instanciando o gerente
+        Gerente gerente = new Gerente(
+                2,
+                "ALEMÃO",
+                "rua",
+                "bairro",
+                "cep",
+                "pelotas",
+                "sede1",
+                "administração"
         );
 
         //instanciando o fornecedor e o produto
@@ -44,7 +57,7 @@ public class Controller {
         f1.getProdutos().add(p2);
 
         //declarando o fornecimento(classe associativa) entre as classes de Fornecedor e Produto
-        Fornecimento fornecimento = new Fornecimento(f1, p1);
+        Fornecimento fornecimento = new Fornecimento(1, f1, p1);
 
         //questao b
         //realizando os pedidos, referentes a vendas na questao b
@@ -91,6 +104,9 @@ public class Controller {
             System.out.println("---");
 
         });
+        //ou
+        //System.out.println(pedidos);
+
         //efetuando as vendas
         System.out.println("----------------------------------------------------------------");
         System.out.println("Estoque dos produtos antes de os pedidos serem ATENDIDOS");
@@ -119,12 +135,87 @@ public class Controller {
         System.out.println("\n______________________RELATORIO DE VENDAS_____________________");
         System.out.print("Valor total dos pedidos atendidos até o momento:");
         System.out.println(NumberFormat.getCurrencyInstance().format(pedidos.stream()
-                        .filter(p -> p.getStatus() == Tipo.ATENDIDO)
-                                .mapToDouble(Pedido::getValor)
-                                        .sum()));
+                .filter(p -> p.getStatus() == Tipo.ATENDIDO)
+                .mapToDouble(Pedido::getValor)
+                .sum()));
+        System.out.println("\n\n");
         System.out.println(pedidos);
 
+        Fornecimento fornecimento2 = new Fornecimento(2);
+        Fornecimento fornecimento3 = new Fornecimento(3);
 
+        gerente.realizaCompra(1000, p1, fornecimento2);
+        gerente.realizaCompra(2000, p2, fornecimento3);
+
+        //Registre esses eventos em uma coleção
+        List<Fornecimento> fornecimentos = new ArrayList<>();
+
+        fornecimentos.add(fornecimento);
+        fornecimentos.add(fornecimento2);
+        fornecimentos.add(fornecimento3);
+
+        //relatorio de fornecimentos
+        System.out.println("----------------RELATORIO de fornecimento----------------");
+        fornecimentos.forEach(fornc -> {
+            System.out.println("---------------------");
+            System.out.println("Fornecimento nº" + fornc.getSequencial());
+            System.out.println("Fornecedor: " + fornc.getFornecedor().getNome());
+            System.out.println("Produto: " + fornc.getProduto().getNome() + " - codigo: " + fornc.getProduto().getCodigo());
+            double aux = fornc.getValorTotal() / fornc.getProduto().getPreco();//
+            System.out.println("Quantidade: " + Math.round(aux));
+            System.out.println("Data: "+ fornc.getData().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+            System.out.println("Preço unitario: " + NumberFormat.getCurrencyInstance().format(fornc.getProduto().getPreco()));
+            System.out.println("Preço total: " + NumberFormat.getCurrencyInstance().format(aux * fornc.getProduto().getPreco()));
+        });
+        //ou
+        //System.out.println(fornecimentos);
+
+        System.out.println("\n====Total dos fornecimentos: " +
+                NumberFormat.getCurrencyInstance()
+                        .format(fornecimentos.stream().mapToDouble(Fornecimento::getValorTotal).sum()));
+
+        System.out.println("----------------------------");
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+
+        //objetivo4
+        // tentando realizar uma compra com quantidade maior que o estoque
+
+        System.out.println("PEDIDO 4 ----------------------------------------------");
+        //instanciando pedido
+        Pedido pedido4 = new Pedido(4, vendedor);
+        //instanciando item do pedido com quantidade acima do estoque do produto
+        Item item4 = new Item(4, p1, 1100, 0);
+
+        //adicionando item ao pedido
+        pedido4.getItens().add(item4);
+//        pedido4.getItens().add(item2);
+
+        //adicionando o pedido4 no relatorio de vendas
+        pedidos.add(pedido4);
+
+        //verificando os item(s) do pedido 4 e a quantidade disponivel em estoque do produto que está em item
+        pedido4.getItens().forEach(p -> {
+            System.out.println("nome: " + p.getProduto().getNome());
+            System.out.println("quantidade em estoque: " + p.getProduto().getQuantidade());
+            System.out.println("quantidade solicitada: " + p.getQuantidade());
+        });
+
+        //efetuando o pedido
+        pedido4.efetuarVenda();
+        System.out.println("----------------------------------");
+        System.out.println("pedido nº" + pedido4.getNumero());
+        System.out.println("Itens do pedido:");
+        pedido4.getItens().forEach(item -> {
+            System.out.print("\n Item:" + item.getProduto().getNome() + ", Quantidade: " + item.getQuantidade());
+            System.out.print(", Valor: " + NumberFormat.getCurrencyInstance().format(item.getValorTotal()));
+        });
+        System.out.println("\nStatus do pedido: " +  pedido4.getStatus());
+
+        System.out.println("\n-------------------imprimindo novamente relatorio de vendas");
+        System.out.println("Total de vendas: "+ NumberFormat.getCurrencyInstance()
+                .format(pedidos.stream().filter(pedido -> pedido.getStatus() == Tipo.ATENDIDO)
+                        .mapToDouble(Pedido::getValor).sum()));
 
     }
 }

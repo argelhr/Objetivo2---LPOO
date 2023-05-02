@@ -1,22 +1,24 @@
 package model;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Fornecimento {
+    private final LocalDate data = LocalDate.now();
+    private int sequencial;
     private Fornecedor fornecedor;
     private Produto produto;
-    private LocalDate data = LocalDate.now();
-//    private double valorTotal = produto.getPreco()*produto.getQuantidade();
+    //coloquei final, pois o atributo data já é iplementado assim que for criado a instancia deste fornecimento
     private double valorTotal;
 
-    public Fornecimento(Fornecedor fornecedor, Produto produto) {
+    public Fornecimento(int sequencial, Fornecedor fornecedor, Produto produto) {
+        this.sequencial = sequencial;
         this.fornecedor = fornecedor;
         this.produto = produto;
-        this.valorTotal = getProduto().getPreco() * getProduto().getQuantidade();
+        this.valorTotal = produto.getPreco() * produto.getQuantidade();
     }
 
-    public Fornecimento() {
+    public Fornecimento(int sequencial) {
+        this.sequencial = sequencial;
     }
 
     public Fornecedor getFornecedor() {
@@ -39,12 +41,20 @@ public class Fornecimento {
         return data;
     }
 
-    public void setData(LocalDate data) {
-        this.data = data;
+    public int getSequencial() {
+        return sequencial;
+    }
+
+    public void setSequencial(int sequencial) {
+        this.sequencial = sequencial;
     }
 
     public double getValorTotal() {
         return valorTotal;
+    }
+
+    public void calculaTotalFornecimento(int quantidade) {
+        this.valorTotal = this.produto.getPreco() * quantidade;
     }
 
     @Override

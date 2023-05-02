@@ -1,5 +1,7 @@
 package model;
 
+import java.time.LocalDate;
+
 public class Gerente extends Funcionario {
     private String formacao;
 
@@ -17,6 +19,15 @@ public class Gerente extends Funcionario {
     public void setFormacao(String formacao) {
         this.formacao = formacao;
     }
+    public void realizaCompra(int quantidade, Produto produto,Fornecimento fornecimento){
+
+        fornecimento.setProduto(produto);
+        fornecimento.setFornecedor(produto.getFornecedor());
+        fornecimento.calculaTotalFornecimento(quantidade);
+        //data já é acrescentada na classe fornecimento
+
+        produto.incrementaEstoque(quantidade);
+    }
 
     @Override
     public String toString() {
@@ -24,4 +35,5 @@ public class Gerente extends Funcionario {
                 "formacao='" + formacao + '\'' +
                 "} " + super.toString();
     }
+
 }

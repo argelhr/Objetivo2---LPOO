@@ -1,13 +1,15 @@
 package model;
 
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import static model.Tipo.ATENDIDO;
+import static model.Tipo.CANCELADO;
 
 public class Pedido {
-    private int numero;
     private final LocalDateTime dataPedido = LocalDateTime.now();
+    private int numero;
     private LocalDateTime dataencerrado;
     private double valor;
     private Vendedor vendedor;
@@ -75,18 +77,29 @@ public class Pedido {
     public double calculaTotal() {
         return itens.stream().mapToDouble(Item::calculaSubTotal).sum();
     }
-    public void adicionaItemPedido(Item item){
+
+    public void adicionaItemPedido(Item item) {
         this.getItens().add(item);
         this.valor = this.itens.stream().mapToDouble(Item::calculaSubTotal).sum();
     }
 
-    public void efetuarVenda(){
-        this.status = ATENDIDO;
-        this.dataencerrado = LocalDateTime.now();
-        this.getItens().forEach(item -> {
-            item.getProduto().decrementaEstoque(item.getQuantidade());
-        });
-
+    public void efetuarVenda() throws EstoqueInsuficienteException {
+        try {
+            this.getItens().forEach(item -> {
+                if (item.getProduto().getQuantidade() < item.getQuantidade()) {
+                    throw new EstoqueInsuficienteException();
+                }
+            });
+            this.status = ATENDIDO;
+            this.dataencerrado = LocalDateTime.now();
+            this.getItens().forEach(item -> {
+                item.getProduto().decrementaEstoque(item.getQuantidade());
+            });
+        } catch (EstoqueInsuficienteException e) {
+            System.out.println("Erro ao atender o pedido: "+ e.getMessage());
+            System.out.println("cancelando pedido");
+            this.status = Tipo.CANCELADO;
+        }
     }
 
     @Override
